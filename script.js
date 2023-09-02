@@ -50,3 +50,69 @@ const sortData = () => {
   });
   displayData(sorted);
 };
+const displayData = (data) => {
+    console.log(data);
+    cardData.textContent = "";
+    if (data.length === 0) {
+      emptyDiv.style.display = "block";
+      return;
+    }
+    emptyDiv.style.display = "none";
+    data?.forEach((data) => {
+      cardData.innerHTML += `
+      <div class="card product-card bg-base-100 shadow-xl rounded-md">
+          <div class='relative'>
+            <img class='h-[200px] w-full rounded-md' src="${
+              data?.thumbnail
+            }" alt="img loading" />
+            ${
+              data?.others?.posted_date &&
+              `<p class='absolute right-1 mt-[-35px] p-1 text-right bg-slate-300 rounded-md'>${secToMin(
+                data?.others?.posted_date
+              )}</p>`
+            }
+          </div>
+          <div class=" p-4 bg-white">
+          <div class="flex gap-4">
+              <div>
+              <img class="w-12 h-12 rounded-full" src="${
+                data?.authors[0]?.profile_picture
+              }" alt="" />
+              
+              </div>
+              <div>
+              <h2 class="card-title">
+              ${data?.title}
+              </h2>
+              <p class='flex gap-2'>${data?.authors[0]?.profile_name} 
+              ${
+                data?.authors[0]?.verified === true &&
+                `<img class="w-5 h-5 rounded-full" src="./download.png" alt="" />`
+              }
+              </p>
+              <p>${data?.others?.views} Views</p>
+              </div>
+          </div>
+          </div>
+      </div>
+      `;
+    });
+  };
+  
+  const secToMin = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+  
+    if (hours === 0) {
+      return `${minutes} min ago`;
+    } else if (minutes === 0) {
+      return `${hours} hrs ago`;
+    } else {
+      return `${hours} hrs ${minutes} min ago`;
+    }
+  };
+  
+  //default
+  loadCategory();
+  loadData(1000);
+  
