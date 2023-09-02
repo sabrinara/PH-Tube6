@@ -67,7 +67,7 @@ const displayData = (data) => {
             }" alt="img loading" />
             ${
               data?.others?.posted_date &&
-              `<p class='absolute right-1 mt-[-35px] p-1 text-right bg-slate-300 rounded-md'>${secToMin(
+              `<p class='absolute right-2 mt-[-38px] px-2 py-1 text-sm text-right text-white bg-black rounded'>${secToMin(
                 data?.others?.posted_date
               )}</p>`
             }
