@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Design</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-11/12 mx-auto">
+    <!-- nav section -->
+    <div class="navbar bg-base-100 border-b-2 border-slate-300">
+      <a href="./index.html" class="navbar-start">
+        <img src="./Logo.png" alt="" />
+      </a>
+      <div class="navbar-center hidden md:flex">
+        <button
+          class="bg-slate-200 px-4 py-2 rounded font-bold"
+          onclick="sortData()"
+        >
+          Sort by view
+        </button>
+      </div>
+      <div class="navbar-end">
+        <a href="./blog.html" class="btn bg-[#FF1F3D] text-white">Blog</a>
+      </div>
+    </div>
+
+   
+
+    <script src="./script.js"></script>
+  </body>
+</html>
